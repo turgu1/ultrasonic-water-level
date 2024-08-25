@@ -6,7 +6,7 @@
 
 #include <string>
 #include <mbedtls/base64.h>
-// Removed: #include <hwcrypto/sha.h>
+// Replaced with sha below: #include <hwcrypto/sha.h>
 #include <sha/sha_parallel_engine.h>
 #include <functional>
 
