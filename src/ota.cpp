@@ -7,7 +7,7 @@
 void OverTheAir::setup() {
 
   // Port defaults to 3232
-  ArduinoOTA.setPort(32749);
+  ArduinoOTA.setPort(OTA_PORT);
 
   // Hostname defaults to esp3232-[MAC]
   ArduinoOTA.setHostname(HOSTNAME);

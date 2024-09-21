@@ -31,10 +31,6 @@ class MultiWiFi {
 
     for (auto network : this->networks) {
       for (size_t i = 0; i < scanResult; i++) {
-        // SSID() is implemented with different return types so we wrap
-        // it into String()
-        // Serial.print(WiFi.SSID(i));
-        // Serial.println("...");
 
         if (String(WiFi.SSID(i)) == network.ssid) {
           WiFi.begin(network.ssid.c_str(), network.pass.c_str());

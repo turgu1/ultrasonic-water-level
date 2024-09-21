@@ -20,7 +20,7 @@ const constexpr bool ULTRASONIC   = true;
 
 #if DEBUGGING
 #define SENSING_DELAY 10
-#define LOW_WATER_DELAY 60
+#define LOW_WATER_DELAY 600
 #define MEDIUM_WATER_DELAY 30
 #define HIGH_WATER_DELAY 15
 #define WATCHDOG_DELAY (60 * 10)

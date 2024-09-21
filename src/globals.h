@@ -36,6 +36,6 @@ PUBLIC uint32_t currentSensorPushElapse
 // Read every SENSING_DELAY seconds. In millimeters
 PUBLIC int currentSensorValue
 #if __GLOBALS__
-    = 3000
+    = 120
 #endif
     ;
