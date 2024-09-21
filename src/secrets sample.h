@@ -8,13 +8,16 @@
 
 #define HOSTNAME "<DEVICE-HOST-NAME>"
 
-#define USERNAME "<USERNAME>"
-#define PASSWORD "<USER-PASSWORD>"
+#define ADMIN_USERNAME "<ADMIN-USERNAME>"
+#define ADMIN_PASSWORD "<ADMIN-PASSWORD>"
 
-#define SSIDS \
-  multi.add("<SSID-1>", "<PASSWORD-1>"); \
+#define USER_USERNAME "<USER-USERNAME>"
+#define USER_PASSWORD "<USER-PASSWORD>"
+
+#define SSIDS                                                                                      \
+  multi.add("<SSID-1>", "<PASSWORD-1>");                                                           \
   multi.add("<SSID-2>", "<PASSWORD-2>");
 
-#define PUSHOVER_TITLE "<PUSHOVER TITLE>"
-#define PUSHOVER_API_TOKEN "<PUSHOVER API TOKEN>"
-#define PUSHOVER_USER_TOKEN "<PUSHOVER USER TOKEN>"
+#define PUSHOVER_TITLE      "<PUSHOVER-TITLE>"
+#define PUSHOVER_API_TOKEN  "<PUSHOVER-API-TOKEN>"
+#define PUSHOVER_USER_TOKEN "<PUSHOVER-USER-TOKEN>"
