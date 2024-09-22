@@ -15,11 +15,12 @@ void waitFor(uint32_t waitTimeMs) {
 void deepSleepFor(uint32_t seconds) {
   esp_sleep_enable_timer_wakeup(uint64_t(1000000) * seconds);
 
-  Serial.println("Going to sleep now");
+  logger.info("Going to sleep now");
 
   waitFor(1000);
 
-  Serial.flush();
+  logger.flush();
+  
   esp_deep_sleep_start();
 }
 
@@ -31,22 +32,22 @@ void showWakeupReason() {
 
   switch (wakeup_reason) {
   case ESP_SLEEP_WAKEUP_EXT0:
-    Serial.println("Wakeup caused by external signal using RTC_IO");
+    logger.info("Wakeup caused by external signal using RTC_IO");
     break;
   case ESP_SLEEP_WAKEUP_EXT1:
-    Serial.println("Wakeup caused by external signal using RTC_CNTL");
+    logger.info("Wakeup caused by external signal using RTC_CNTL");
     break;
   case ESP_SLEEP_WAKEUP_TIMER:
-    Serial.println("Wakeup caused by timer");
+    logger.info("Wakeup caused by timer");
     break;
   case ESP_SLEEP_WAKEUP_TOUCHPAD:
-    Serial.println("Wakeup caused by touchpad");
+    logger.info("Wakeup caused by touchpad");
     break;
   case ESP_SLEEP_WAKEUP_ULP:
-    Serial.println("Wakeup caused by ULP program");
+    logger.info("Wakeup caused by ULP program");
     break;
   default:
-    Serial.printf("Wakeup was not caused by deep sleep: %d\n", wakeup_reason);
+    logger.info("Wakeup was not caused by deep sleep: %d", wakeup_reason);
     break;
   }
 }

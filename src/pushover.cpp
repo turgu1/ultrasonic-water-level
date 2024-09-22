@@ -37,12 +37,11 @@ void PushOver::send(const char *msg, const char *priority) {
   int httpResponseCode = https.POST(jsonStringNotification);
 
   if (httpResponseCode > 0) {
-    Serial.printf("HTTP response code: %d\n", httpResponseCode);
+    logger.info("HTTP response code: %d", httpResponseCode);
     String response = https.getString();
-    Serial.println("Response:");
-    Serial.println(response);
+    logger.info("Response: %s", response.c_str());
   } else {
-    Serial.printf("HTTP response code: %d\n", httpResponseCode);
+    logger.info("HTTP response code: %d", httpResponseCode);
   }
 
   https.end();

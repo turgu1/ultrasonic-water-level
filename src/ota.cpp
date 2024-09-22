@@ -31,6 +31,7 @@ void OverTheAir::setup() {
     // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
     Serial.println("Start updating " + type);
   })
+      .setPasswordHash(OTA_AUTH)
       .onEnd([]() { Serial.println("\nEnd"); })
       .onProgress([](unsigned int progress, unsigned int total) {
     Serial.printf("Progress: %u%%\r", (progress / (total / 100)));

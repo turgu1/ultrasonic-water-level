@@ -47,11 +47,31 @@ extern void webServerTask(void *pvParameters);
 
 void setup() {
 
-  Serial.begin(115200);
-  Serial.println("Demarrage");
+  if constexpr (INTERNET) {
+    internet.setup();
+
+    while (!internet.connect()) {
+      waitFor(internet.reconnectInterval);
+    }
+ 
+     if constexpr (DO_NTP) {
+      ntp.setup(internet);
+      getLocalTime(&startTime);
+    } else {
+      getDefaultDateTime(&startTime);
+    }
+
+    if constexpr (DO_RTC) {
+      realTimeClock.setup();
+    }
+  }
+
+  logger.setup();
+
+  logger.info("Demarrage");
 
   ++bootCount;
-  Serial.println("Boot number: " + String(bootCount));
+  logger.info("Boot number: %d", bootCount);
 
   // Print the wakeup reason for ESP32
   showWakeupReason();
@@ -66,17 +86,6 @@ void setup() {
 
     while (!internet.connect()) {
       waitFor(internet.reconnectInterval);
-    }
-
-    if constexpr (DO_NTP) {
-      ntp.setup(internet);
-      getLocalTime(&startTime);
-    } else {
-      getDefaultDateTime(&startTime);
-    }
-
-    if constexpr (DO_RTC) {
-      realTimeClock.setup();
     }
 
     if constexpr (DO_OTA) {

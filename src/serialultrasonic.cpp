@@ -30,17 +30,17 @@ int SerialUltrasonic::read() {
       uint8_t sum = data[0] + data[1] + data[2];
       if (sum == data[3]) {
         lastValue = ((data[1] << 8) + data[2]);
-        Serial.printf("Serial Ultrasonic: Last Value: %d.%03d meters.\n", lastValue / 1000,
+        logger.info("Serial Ultrasonic: Last Value: %d.%03d meters.", lastValue / 1000,
                       lastValue % 1000);
         return lastValue;
       } else {
-        Serial.println("Serial Ultrasonic ERROR: Bad checksum.");
+        logger.info("Serial Ultrasonic ERROR: Bad checksum.");
       }
     } else {
-      Serial.println("Serial Ultrasonic ERROR: Sync issue.");
+      logger.info("Serial Ultrasonic ERROR: Sync issue.");
     }
   } else {
-    Serial.println("Serial Ultrasonic ERROR: Nothing available...");
+    logger.info("Serial Ultrasonic ERROR: Nothing available...");
   }
 }
 

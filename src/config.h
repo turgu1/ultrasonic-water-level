@@ -18,6 +18,9 @@ const constexpr bool DO_RTC       = true;
 const constexpr bool OLED_DISPLAY = false;
 const constexpr bool ULTRASONIC   = true;
 
+const constexpr bool LOGGER_UDP    = true;
+const constexpr bool LOGGER_SERIAL = true;
+
 #if DEBUGGING
 #define SENSING_DELAY 10
 #define LOW_WATER_DELAY 600

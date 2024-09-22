@@ -19,7 +19,7 @@ int Ultrasonic::read() {
   long t = pulseIn(ECHO, HIGH);
   lastValue = t / 29 / 2;
   
-  Serial.printf("Value: %ld\n", t);
+  logger.info("Value: %ld", t);
   return lastValue;
 }
 

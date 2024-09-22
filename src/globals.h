@@ -18,6 +18,7 @@
 #include "display.h"
 #include "handlers.h"
 #include "serialultrasonic.h"
+#include "logger.h"
 
 // This is the time when the device was booted
 PUBLIC tm startTime;
